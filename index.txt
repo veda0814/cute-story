@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">  <!-- Added -->
+<title>Our Story ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
+
+<style>
+body {
+    margin: 0;
+    background: #fdeff4;
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+}
+
+/* Intro */
+#intro {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right, #ffe6f0, #fff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+}
+#intro h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 50px;
+    color: #d63384;
+    margin: 0 20px;
+}
+#openBtn {
+    padding: 12px 30px;
+    font-size: 20px;
+    background: #ff4d88;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Book */
+#book {
+    width: 90vw;
+    max-width: 900px;
+    height: 600px;
+    margin: 50px auto;
+    display: none;
+}
+
+.page {
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    box-sizing: border-box;
+    font-size: 24px;
+    color: #b30059;
+    text-align: center;
+    flex-direction: column;
+}
+
+.page img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    max-height: 100%;  /* keep image inside page */
+}
+
+.proposal {
+    font-size: 36px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#yesBtn {
+    background: #ff4d88;
+    color: white;
+}
+
+#noBtn {
+    background: gray;
+    color: white;
+    position: relative;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 600px) {
+    #intro h1 {
+        font-size: 28px;
+    }
+    #openBtn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+    #book {
+        width: 95vw;
+        height: 80vh;
+        margin: 20px auto;
+    }
+    .page {
+        font-size: 18px;
+        padding: 15px;
+    }
+    .proposal {
+        font-size: 24px;
+    }
+    button {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+    #noBtn {
+        /* Allow moving around on small screen but limit */
+        max-width: 120px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="intro">
+    <h1>Click to Open Our Story 📖✨</h1>
+    <button id="openBtn">Open ❤️</button>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="Samayama.mp3" type="audio/mpeg">
+</audio>
+
+<div id="book">
+    <div class="page"><img src="images/photo1.jpeg" alt="Photo 1"></div>
+
+    <div class="page">
+        chottuu love uhh soo much ra 💕<br><br>
+        eni ups and downs ochina life lo nathone unavu.<br>
+        nitho life lo epud leni antha happiness chusa.<br><br>
+        ne face lo ee happiness kosam em chydaniki ayina ready<br>
+        life long navuthane undu bujji<br>
+        ninu ala chusthe nenu ey badha lekunda brathikestha buddi.
+    </div>
+
+    <div class="page"><img src="images/photo2.jpeg" alt="Photo 2"></div>
+
+    <div class="page">
+        aa trip na life lo marchipoleni memory ❤️<br><br>
+        first train journey kalisi 🚆<br>
+        aa moments epudiki na heart lo untayi<br>
+        nitho ala nyt antha aa train lo marchiploen nanna<br>
+        ne smile adi chusthu brathikeyachu bujji<br>
+        eni kastalu una aa smile chusthe teliyani happiness<br>
+        life long ilane natho happy ga undu bujji.
+    </div>
+
+    <div class="page"><img src="images/photo3.jpeg" alt="Photo 3"></div>
+
+    <div class="page">
+        ne smile chalu 😊<br><br>
+        na life lo best decision nuvu<br>
+        life lo eni kastalu ochina ne cheyi odhalanu buddi<br>
+        promise chachedhaka nithone<br>
+        nikosam na life lo chala chesa edi odhu anukunano ade chesa just nikosam<br>
+        eni kastalu ochina na cheyi odhalaku ra
+        I LOVE YOU BANGARAM ❤️
+    </div>
+
+    <div class="page"><img src="images/photo4.jpeg" alt="Photo 4"></div>
+
+    <div class="page proposal">
+        Will you marry me? 💍✨<br>
+        <button id="yesBtn">YES 💖</button>
+        <button id="noBtn">No 🙈</button>
+    </div>
+</div>
+
+<script>
+let pageFlip;
+
+document.getElementById("openBtn").addEventListener("click", function() {
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("book").style.display = "block";
+    document.getElementById("bgMusic").play();
+
+    pageFlip = new St.PageFlip(
+        document.getElementById("book"),
+        {
+            width: 450,
+            height: 600,
+            size: "stretch",
+            minWidth: 315,
+            maxWidth: 900,
+            minHeight: 420,
+            maxHeight: 800,
+            showCover: true,
+            mobileScrollSupport: false
+        }
+    );
+
+    pageFlip.loadFromHTML(document.querySelectorAll(".page"));
+});
+
+/* Running No Button */
+document.getElementById("noBtn").addEventListener("mouseover", function() {
+    this.style.position = "absolute";
+    this.style.left = Math.random() * 300 + "px";
+    this.style.top = Math.random() * 200 + "px";
+});
+
+document.getElementById("yesBtn").addEventListener("click", function() {
+    alert("You just made me the happiest person alive! 💍❤️");
+});
+</script>
+
+</body>
+</html>
